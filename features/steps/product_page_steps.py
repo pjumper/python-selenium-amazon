@@ -9,3 +9,7 @@ def open_product_b0bbjrr25(context):
 @then('Verify user can see color options')
 def verify_user_click_thru_colors(context):
     context.app.product_page.verify_user_can_click_thru_colors()
+
+@then('Verify every product has a name and image')
+def verify_product_name_images(context):
+    context.app.product_page.verify_product_name_image()
