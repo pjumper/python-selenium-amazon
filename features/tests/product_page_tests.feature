@@ -2,11 +2,18 @@
 Feature: Product Page Tests
 
 
+  Scenario: User can search for a product on Amazon
+    Given Open Amazon Page
+    When Input text tea
+    When Click search button
+    Then Verify that text "tea" is displayed
+
   Scenario: User can see color options
     Given Open Amazon product B07BJKRR25
     Then Verify user can see color options
 
-  Scenario: Verify user can see products and product names
+
+    Scenario: Verify user can see products and product names
     Given Open Amazon Page
     When Input text coffee
     When Click search button

@@ -8,11 +8,21 @@ class ProductPage(Page):
     All_PRODUCTS = (By.CSS_SELECTOR, "[data-component-type='s-search-result']")
     PRODUCT_IMG = (By.CSS_SELECTOR, ".s-image[data-image-latency='s-product-image']")
     PRODUCT_TITLE = (By.CSS_SELECTOR, 'h2 span.a-text-normal')
+    PRODUCT_TEXT = (By.CSS_SELECTOR, '.a-color-state.a-text-bold')
+    PRODUCT_PRICE = (By.CSS_SELECTOR, 'span.a-price-whole')
+    ADD_TO_CART = (By.ID, 'add-to-cart-button')
     def open_product_b0bbjrr25(self):
         self.open_url('https://www.amazon.com/gp/product/B07BJKRR25/')
 
+    def click_first_product(self):
+        self.click(*self.PRODUCT_PRICE)
 
-    def verify_user_can_click_thru_colors(self, *locator):
+
+    def add_to_cart(self):
+        self.click(*self.ADD_TO_CART)
+
+
+    def verify_user_can_click_thru_colors(self):
         self.find_elements(*self.ALL_COLOR_OPTIONS)
         expected_colors = ['Black', 'Blue, Over Dye', 'Bright White', 'Dark Blue Vintage']
         all_color_options = self.find_elements(*self.ALL_COLOR_OPTIONS)
@@ -33,6 +43,16 @@ class ProductPage(Page):
             assert product.find_element(*self.PRODUCT_IMG).is_displayed(), 'Product image is missing'
 
             assert product.find_element(*self.PRODUCT_TITLE).text, 'Product title is missing'
+
+
+    def verify_product_displayed(self, expected_results):
+        actual_results = self.find_element(*self.PRODUCT_TEXT).text
+        assert expected_results == actual_results, f'Expected {expected_results} and got {actual_results}'
+
+
+
+
+
 
 
 
