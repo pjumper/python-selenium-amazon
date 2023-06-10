@@ -16,3 +16,6 @@ class CartPage(Page):
         actual_count = self.find_element(*self.CART_PAGE_COUNT).text
         assert expected_count == actual_count, f'expected{expected_count} but got {actual_count}'
 
+    def verify_cart_count(self, expected_count):
+        actual_count = self.find_element(*self.CART_PAGE_COUNT).text
+        assert expected_count == actual_count, f'Expected this amount {expected_count} but received this amount {actual_count}'

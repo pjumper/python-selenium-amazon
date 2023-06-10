@@ -16,6 +16,12 @@ def click_first_product(context):
 def add_to_cart(context):
     context.app.product_page.add_to_cart()
 
+@when('Open Cart Page')
+def click_cart_bttn(context):
+    context.app.product_page.click_cart()
+
+
+
 @then('Verify user can see color options')
 def verify_user_click_thru_colors(context):
     context.app.product_page.verify_user_can_click_thru_colors()

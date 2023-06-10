@@ -11,6 +11,7 @@ class ProductPage(Page):
     PRODUCT_TEXT = (By.CSS_SELECTOR, '.a-color-state.a-text-bold')
     PRODUCT_PRICE = (By.CSS_SELECTOR, 'span.a-price-whole')
     ADD_TO_CART = (By.ID, 'add-to-cart-button')
+    GO_TO_CART = (By.CSS_SELECTOR, "a[href='/cart?ref_=sw_gtc']")
     def open_product_b0bbjrr25(self):
         self.open_url('https://www.amazon.com/gp/product/B07BJKRR25/')
 
@@ -20,6 +21,9 @@ class ProductPage(Page):
 
     def add_to_cart(self):
         self.click(*self.ADD_TO_CART)
+
+    def click_cart(self):
+        self.click(*self.GO_TO_CART)
 
 
     def verify_user_can_click_thru_colors(self):

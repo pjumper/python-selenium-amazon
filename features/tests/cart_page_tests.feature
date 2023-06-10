@@ -14,3 +14,5 @@ Feature: Cart Tests
     And Click on first product
     And Click on Add to cart button
     When Click no insurance button
+    And Open Cart Page
+    Then Verify cart has 1 item

@@ -7,8 +7,14 @@ from behave import given, when, then
 def click_no_insurance_bttn(context):
     context.app.cart_page.click_no_insurance_bttn()
 
+
 @then('Verify {expected_count} in cart')
 def verify_empty_cart(context, expected_count):
     context.app.cart_page.verify_cart_empty(expected_count)
+
+
+@then('Verify cart has {expected_count} item')
+def verify_cart_count(context, expected_count):
+    context.app.cart_page.verify_cart_count(expected_count)
 
 

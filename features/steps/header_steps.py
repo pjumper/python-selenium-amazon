@@ -5,6 +5,7 @@ from time import sleep
 @given('Open Amazon Page')
 def open_main_page(context):
     context.app.main_page.open_main()
+    sleep(3)
 
 @when('Click Order Button')
 def click_order_bttn(context):
@@ -29,6 +30,8 @@ def click_search_button(context):
 def input_text_search_field(context, text):
     context.app.header.input_text_search_field(text)
 
+
+
 @then('Verify Sign in page opened')
 def verify_sign_in_shown(context):
     context.app.sign_in_page.sign_in_email()
@@ -38,6 +41,4 @@ def verify_bestseller_links_shown(context, expected_links):
     context.app.header.verify_bestseller_links_displayed(expected_links)
 
 
-@then('Verify Footer has {expected_count} links')
-def verify_footer_link_count(context, expected_count):
-    context.app.header.verify_footer_link_count(expected_count)
+
